@@ -1,0 +1,224 @@
+[Settings]
+Name=                                                   | Name of your application
+Size=                                                   | Example: 6.6 Gb
+                                                          b,B,k,K,kb,KB,Kb,m,M,mb,MB,Mb,g,G,gb,GB,Gb,t,T,tb,TB,Tb,p,P,pb,PB or Pb
+Creator=                                                | Creator name (will be visible on "About" page)
+UWPGame=0/1                                             | Use (1) or not use (0) UWP game registration
+ShowLanguageBox=0/1                                     | Show language selection before setup starts
+DefaultInstallDir=                                      | Set the default install directory to which the application should be installed
+                                                          It is possible to use constants such as {sd}, {pf}, ...
+                                                          F.e. DefaultInstallDir={sd}\Games - This will set default path to {systemdrive}\Games\{app}
+UnInstallFolder=                                        | Define folder for uninstall files
+                                                          Uninstall files will always be created in {app} folder
+CompactMode=0/1                                         | Use CompactMode=1 for minimalistic interface (no images, compact in size)
+Savegamefolder=                                         | Set savegame folder. After uninstallation the setup will ask if you want to delete the folder
+                                                          Example: Savegamefolder={userdocs}\Final Fantasy VII
+Win11Warning=                                           | Set to 1 will show a warning if compression tools or codecs are used which are not supported on Windows 11 systems.
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[UpdateSettings]
+UpdateMode=                                             | Use (1) or not use (0) update mode
+                                                          Update mode will not create any uninstall files, icons and {app} folder
+                                                          It is only aviable in compact mode
+FileCheck=                                              | File check is required for update mode to work correctly
+                                                          Basically it prevents to install to a wrong folder if given file is not present (safety check)
+                                                          If required file is in a subfolder, write it like this: Bin\Win64\game.exe
+                                                          You can even point to txt files or whatever files you like, it must not be an exe file
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Executable#]                                           | Replace # with a number (1, 2, 3...)
+ShortcutName=                                           | The name of your shortcut on desktop and startmenu
+ExePath=                                                | Path to exe file (it is always read from {app}\)
+ExeParam=                                               | Parameter of your shortcut (if neccessary)
+IconFileName=                                           | Path to icon file for desktop/startmenu shortcuts (use constants before filename/path)
+                                                          It is even possible to point to another executable to take the icon
+Component=                                              | Set the component to which the Executable belongs to
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[INISettings]
+Enable=0/1                                              | In NormalMode there will be a input field visible on SelectDirPage
+                                                          In CompactMode the value from Value= key will be used to write in INI
+INIFile=                                                | Select the INI file to edit after installation
+                                                          Example: {app}\inifile.ini, {localappdata}\YourApplication\inifile.ini
+Section=                                                | Section inside INI file which contains the key to edit
+Key=                                                    | Key inside Section to edit
+Value=                                                  | Is only needed in CompactMode!
+                                                          If you want to use the systems user name use {username} constant
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Text]
+WelcomeLabel1Top=                                       | Set the top position of heading label in pixel on WelcomePage (default 235)
+WelcomeLabel2Top=                                       | Set the top position of main label in pixel on WelcomePage (default 295)
+FinishLabel1Top=                                        | Set the top position of heading label in pixel on FinishedPage (default 235)
+FinishLabel2Top=                                        | Set the top position of main label in pixel on FinishedPage (default 295)
+WelcomeLabel1FontSize=                                  | Set the font size of heading label on WelcomePage (default 14)
+WelcomeLabel2FontSize=                                  | Set the font size of main label on WelcomePage (default 10)
+FinishLabel1FontSize=                                   | Set the font size of heading label on FinishedPage (default 14)
+FinishLabel2FontSize=                                   | Set the font size of main label on FinishedPage (default 10)
+Font=                                                   | Set the font to use (default Calibri)
+                                                          To use a custom font, copy the font file to Setup folder and name it "Font.ttf"
+                                                        | Use the fonts original name (open the font and you will see the name)
+FontColor=                                              | Set the font color of all above font settings with $RRGGBB ($ffffff)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Button]
+PlaySound=                                              | Enable (1) to use button sound. Use Button.wav and place it in Setup folder
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[ComponentsSettings]
+Enable=                                                 | Enable (1) or disable (0) the use of components
+                                                          You are able to choose what components will be installed
+FlatPageMode=                                           | Enable (1) or disable (0) the use of flat page mode
+                                                          Flat page means that there will be no "box effect" in which
+                                                          the checkboxes for components are
+ShowComponentSize=                                      | Show component sizes (1) or not (0)
+Component#.Name=                                        | The name of the component
+                                                          You can also use cm:EN/FR/DE/... for languages
+Component#.ItemType=                                    | Set the component type (RADIO/CHECK/GROUP)
+Component#.Size=                                        | The size for the component (# xx)
+                                                          The size is for unpacked (original) data, not the archive size
+                                                          Size= key in [Settings] section will be ignored
+Component#.Level=                                       | Sets the level for this component (0,1,2,3,4,5,etc)
+                                                          At each number the CheckBox/RadioButton/Group is moved approximately 15 pixels to the right
+Component#.Checked=                                     | Checked (1) or not checked (0) by default
+Component#.Enabled=                                     | Enabled (1) or not enabled (0)
+                                                          This is helpful if the component should not be editable (f.e. main files)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[TasksSettings]
+Enable=                                                 | Enable (1) or disable (0) the use of tasks
+                                                          You are able to choose what tasks will be installed
+FlatPageMode=                                           | Enable (1) or disable (0) the use of flat page mode
+                                                          Flat page means that there will be no "box effect" in which
+                                                          the checkboxes for tasks are
+ShowComponentSize=                                      | Show task sizes (1) or not (0)
+Task#.Name=                                             | The name of the task
+Task#.ItemType=                                         | Set the task type (RADIO/CHECK/GROUP)
+Task#.Size=                                             | The size for the task (# xx)
+                                                          The size is for unpacked (original) data, not the archive size
+Task#.Level=                                            | Sets the level for this task (0,1,2,3,4,5,etc)
+                                                          At each number the CheckBox/RadioButton/Group is moved approximately 15 pixels to the right
+Task#.Checked=                                          | Checked (1) or not checked (0) by default
+Task#.Enabled=                                          | Enabled (1) or not enabled (0)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Background]
+Enable=                                                 | Enable (1) or disable (0) the use of slideshow during installation process
+BackgroundDuration=                                     | Set how long each image will be visible in miliseconds (1 second = 1000 miliseconds)
+BackgroundAnimation=                                    | Enable (1) or disable (0) transition effects between images
+BGAfterInstall=                                         | If enabled (1) the slideshow will be kept on FinishPage
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[SystemRequirement]
+Enable=                                                 | Enable (1) or disable (0) the use of system check during setup
+                                                          This is only used on NormalMode
+Processor=                                              | Set minimal CPU requirement in MHz (f.e. =3200)
+VideoRAM=                                               | Set minimal GPU requirement in Mhz (f.e. =2048)
+RAM=                                                    | Set minimal RAM requirement in MB  (f.e. =8192)
+OS=                                                     | Set minimal OS requirement (Win7 = 611, Win8.1 = 621, Win10 = 1000)
+DirectX=                                                | Set minimal DirectX requirement (9, 10, 11, 12)
+HWSectionLabelColor=                                    | Set the font color of the hardware (left side) with $RRGGBB ($808080)
+HWOkLabelColor=                                         | Set the font color of the detected hardware (rigt side) with $RRGGBB ($357EC7)
+HWNotOkLabelColor=                                      | Set the font color of the detected hardware (rigt side) if they not matches with minreq with $RRGGBB ($ff0000)
+HWGoodLabelColor=                                       | Set the font color if your hardware matches the minimum requirement with $RRGGBB ($36ff00)
+HWPartiallyGoodLabelColor=                              | Set the font color if your hardware partially matches the minimum requirement with $RRGGBB ($ff8400)
+HWNotGoodLabelColor=                                    | Set the font color if your hardware NOT matches the minimum requirement with $RRGGBB ($ff0000)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[CRCCheck]
+Enable=                                                 | Enable (1) or disable (0) the use of a hash check after installation is finished.
+                                                          Note that internal hash check is only usable if you used DiskSpan_GUI and created hash files with it.
+                                                          If you want to use QuickSFV instead you have to set Enable=1 nevertheless.
+StartCheck=                                             | If enabled (1) CRC checkbox is enabled by default and Hash checking starts automatically after installation process.
+QuickSFV=                                               | Enable (1) if you want to use QuickSFV for file checking instead of internal Setup hash check.
+QuickSFVFile=                                           | Set the hash file to use for the hash check.
+                                                          It is possible to use sfv, md5, crc, csv and ckz files
+DeleteHashFile=                                 | Delete (1) the hash file after install is finished.
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Website]
+Enable=                                                 | Enable (1) or disable (0) to make a website button visible
+WebsiteButtonText=                                      | Text to display on the website button
+                                                          If it's empty, then a custom message 'Website' will be used in different languages
+URL=                                                    | URL to open when click the website button
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Splash]
+Enable=                                                 | Enable (1) or disable (0) to use a splash image which will be shown on installer start
+SplashFile=                                             | Filename of the splash image (.PNG)
+SplashFadeIn=                                           | Fade in time in miliseconds
+SplashShow=                                             | Show time in miliseconds
+SplashFadeOut=                                          | Fade out time in miliseconds
+                                                          NOTE: If you don't want to use fade in/out just use 0
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Music]
+Enable=                                                 | Enable (1) or disable (0) to use music during installation
+MusicFile=                                              | Filename of the music file (.mp3)
+MusicVolume=                                            | Volume from 0 - 100.
+                                                          100 = Maximum volume set in system volume control
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[License]
+Enable=                                                 | Enable (1) or disable (0) to use License/EULA file (RTF/TXT)
+                                                          Setup\EULA\English.rtf/txt
+                                                                     French.rtf/txt
+                                                                     German.rtf/txt
+                                                                     Italian.rtf/txt
+                                                                     Spanish.rtf/txt
+                                                                     Polish.rtf/txt
+                                                                     Russian.rtf/txt
+                                                                     PortugueseBrazil.rtf/txt
+                                                                     Czech.rtf/txt
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[InfoBefore]
+Enable=                                                 | Enable (1) or disable (0) to use information file (TXT)
+                                                          InfoBefore.txt file has to be in Setup folder.
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Skin]
+EnableCjstyles=                                         | Enable (1) or disable (0) to use Codejock styles
+CjstylesFile=                                           | Filename of the skin to use (.cjstyles)
+CjstylesParam=                                          | Parameter of the skin (some skins have parameters)
+EnableVCL=                                              | Enable (1) or disable (0) to use VCL styles
+VCLFile=                                                | Filename of the skin to use (.vsf)
+                                                          Keep in mind that cls-diskspan has problems with VCL Skins!
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Redists]
+Enable=                                                 | Enable (1) or disable (0) the use of redists during setup
+
+Redist#.Enable=                                         | Enable (1) or disable (0)
+Redist#.Name=                                           | Name of the redist
+Redist#.Level=                                          | 0/1. Sets the level for this redist (0=secundary, 1=primary)
+Redist#.ItemType=                                       | Set the redist type (RADIO/CHECK/GROUP)
+Redist#.Checked=                                        | Checked (1) or not checked (0) by default
+Redist#.Enabled=                                        | Enabled (1) or not enabled (0)
+Redist#.Exe32=                                          | Path and file of x86 redist ({src}..{app}..\dxsetup32.exe)
+Redist#.Exe64=                                          | Path and file of x64 redist ({src}..{app}..\dxsetup64.exe)
+Redist#.Param=                                          | Parameter
+
+/////////////////////////////////////////////////////////////////////////////////
+
+[Batch]
+Enable=                                                 | Enable (1) or disable (0) the use of a batch file after Setup is done
+BatchFile=                                              | File name of the batch file. The batch file will be copied to {app} and will run from there.
+
