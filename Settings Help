@@ -138,12 +138,12 @@ HWNotGoodLabelColor=                                    | Set the font color if 
 [CRCCheck]
 Enable=                                                 | Enable (1) or disable (0) the use of a hash check after installation is finished.
                                                           Note that internal hash check is only usable if you used DiskSpan_GUI and created hash files with it.
-                                                          If you want to use QuickSFV instead you have to set Enable=1 nevertheless.
+                                                          If you want to use QuickSFV or RapidCRC instead you have to set Enable=1 nevertheless.
 StartCheck=                                             | If enabled (1) CRC checkbox is enabled by default and Hash checking starts automatically after installation process.
 QuickSFV=                                               | Enable (1) if you want to use QuickSFV for file checking instead of internal Setup hash check.
-QuickSFVFile=                                           | Set the hash file to use for the hash check.
-                                                          It is possible to use sfv, md5, crc, csv and ckz files
-DeleteHashFile=                                 | Delete (1) the hash file after install is finished.
+RapidCRC=                                               | Enable (1) if you want to use RapidCRC for file checking instead of internal Setup hash check.
+HashFile=                                               | Set the hash file to use for the hash check.
+DeleteHashFile=                                         | Delete (1) the hash file after install is finished.
 
 /////////////////////////////////////////////////////////////////////////////////
 
